@@ -5,73 +5,168 @@
   <title>Philips Web Store</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       background: #000;
       color: #fff;
       font-family: Arial, sans-serif;
-      text-align: center;
     }
-
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 15px 30px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
     h1 {
       font-size: 26px;
-      margin: 20px 0 10px;
+      margin: 0 0 6px;
       font-weight: 300;
       letter-spacing: 1px;
     }
-
     .subtitle {
       font-size: 14px;
       color: #aaa;
-      margin-bottom: 25px;
     }
 
-    .apps {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 80%;
-      max-width: 350px;
-      margin: 0 auto;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
     }
 
-    .app {
-      background: #111;
-      border: 1px solid #333;
-      padding: 15px;
-      border-radius: 6px;
-      font-size: 18px;
+    .tile {
+      background: #101010;
+      border-radius: 8px;
+      border: 1px solid #252525;
+      padding: 14px 10px;
+      text-align: left;
       text-decoration: none;
       color: #fff;
-      transition: background 0.2s;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    }
+    .tile:hover,
+    .tile:active {
+      background: #181818;
+      border-color: #3a82ff;
+      transform: scale(1.01);
+    }
+    .tile-icon {
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+    .tile-title {
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .tile-desc {
+      font-size: 12px;
+      color: #b5b5b5;
     }
 
-    .app:hover,
-    .app:active {
-      background: #222;
+    .section-title {
+      font-size: 15px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 26px;
+      margin-bottom: 8px;
     }
 
     .footer {
-      margin-top: 30px;
-      font-size: 12px;
+      margin-top: 24px;
+      text-align: center;
+      font-size: 11px;
       color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .wrapper {
+        padding: 15px 10px 24px;
+      }
+      h1 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="wrapper">
+    <header>
+      <h1>Philips Web Store</h1>
+      <div class="subtitle">Apps web légères pour TV Philips Saphi</div>
+    </header>
 
-  <h1>Philips Web Store</h1>
-  <div class="subtitle">Applications : </div>
+    <div class="section-title">Utilitaires</div>
+    <div class="grid">
+      <a class="tile" href="https://sphclck.vercel.app/">
+        <div class="tile-icon">🕒</div>
+        <div class="tile-title">Horloge</div>
+        <div class="tile-desc">Heure, minuteur, chronomètre optimisés TV.</div>
+      </a>
 
-  <div class="apps">
-    <a class="app" href="https://sphclck.vercel.app/">🕒 Horloge</a>
-    <a class="app" href="https://calcclc.vercel.app/">🔢 Calculatrice</a>
-    <a class="app" href="https://deux048.vercel.app/">🎮 2048</a>
-    <a class="app" href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal">📖 Wikipédia</a>
-    <a class="app" href="https://google.com/">🌐 Google</a>
-    <a class="app" href="https://philips-smart-tv.yatta.francetv.fr/">📺 france.tv</a>
+      <a class="tile" href="https://calcclc.vercel.app/">
+        <div class="tile-icon">🔢</div>
+        <div class="tile-title">Calculatrice</div>
+        <div class="tile-desc">Calculs simples, lisible de loin.</div>
+      </a>
+
+      <a class="tile" href="https://sphaide.vercel.app/">
+        <div class="tile-icon">❓</div>
+        <div class="tile-title">Aide</div>
+        <div class="tile-desc">Astuces Saphi & Philips Web Store.</div>
+      </a>
+    </div>
+
+    <div class="section-title">Jeux</div>
+    <div class="grid">
+      <a class="tile" href="https://deux048.vercel.app/">
+        <div class="tile-icon">🎮</div>
+        <div class="tile-title">2048</div>
+        <div class="tile-desc">Jeu 2048, contrôles à la télécommande.</div>
+      </a>
+    </div>
+
+    <div class="section-title">Web & recherche</div>
+    <div class="grid">
+      <a class="tile" href="https://www.google.com/">
+        <div class="tile-icon">🌐</div>
+        <div class="tile-title">Google</div>
+        <div class="tile-desc">Recherche rapide depuis la TV.</div>
+      </a>
+
+      <a class="tile" href="https://fr.wikipedia.org/">
+        <div class="tile-icon">📚</div>
+        <div class="tile-title">Wikipédia</div>
+        <div class="tile-desc">Infos et articles, version web légère.</div>
+      </a>
+    </div>
+
+    <div class="section-title">TV & vidéo</div>
+    <div class="grid">
+      <a class="tile" href="https://philips-smart-tv.yatta.francetv.fr">
+        <div class="tile-icon">📺</div>
+        <div class="tile-title">france.tv (Saphi)</div>
+        <div class="tile-desc">Version TV officielle, optimisée Saphi.</div>
+      </a>
+
+      <a class="tile" href="https://philips-smart-tv.okoo.francetv.fr">
+        <div class="tile-icon">🧒</div>
+        <div class="tile-title">Okoo (Saphi)</div>
+        <div class="tile-desc">Contenus enfants, interface TV légère.</div>
+      </a>
+    </div>
+
+
+    </div>
   </div>
-
-
 </body>
-</html>
+      </html>
+  
