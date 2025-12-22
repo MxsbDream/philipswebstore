@@ -156,6 +156,48 @@
 
     </div>
   </div>
+  <div class="box">
+  <h2>💡 Recommander une app</h2>
+  <p>Tu veux proposer une nouvelle app à ajouter au Philips Web Store ? Entre son nom et son lien ci-dessous.</p>
+
+  <label>Nom de l'app :</label><br>
+  <input id="appName" type="text" style="width:100%;padding:8px;margin:6px 0;background:#111;border:1px solid #333;color:#fff;border-radius:4px;">
+
+  <label>Lien de l'app :</label><br>
+  <input id="appLink" type="text" style="width:100%;padding:8px;margin:6px 0;background:#111;border:1px solid #333;color:#fff;border-radius:4px;">
+
+  <button onclick="sendSuggestion()" style="width:100%;padding:10px;margin-top:10px;background:#1a73e8;border:none;color:#fff;font-size:15px;border-radius:4px;">
+    Envoyer la suggestion
+  </button>
+
+  <p id="result" style="margin-top:10px;font-size:14px;color:#4da3ff;"></p>
+</div>
+
+<script>
+function sendSuggestion() {
+  const name = document.getElementById("appName").value.trim();
+  const link = document.getElementById("appLink").value.trim();
+
+  if (!name || !link) {
+    document.getElementById("result").innerHTML = "⚠️ Merci de remplir les deux champs.";
+    return;
+  }
+
+  const subject = encodeURIComponent("Suggestion d'app pour le Philips Web Store");
+  const body = encodeURIComponent(
+    "Nouvelle app suggérée :\n\n" +
+    "Nom : " + name + "\n" +
+    "Lien : " + link + "\n\n" +
+    "Envoyé depuis le Philips Web Store."
+  );
+
+  const mailto = "mailto:ton-email@exemple.com?subject=" + subject + "&body=" + body;
+
+  document.getElementById("result").innerHTML =
+    `📩 <a href="${mailto}" style="color:#4da3ff;">Clique ici pour envoyer la suggestion</a>`;
+}
+    </script>
+  
 </body>
       </html>
   
